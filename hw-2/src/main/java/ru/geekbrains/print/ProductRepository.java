@@ -3,15 +3,12 @@ package ru.geekbrains.print;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class ProductRepository {
-    private List<Product> productRepository;
-
-    public ProductRepository(List<Product> productRepository) {
-        this.productRepository = productRepository;
-    }
+    private List<Product> productRepository = new ArrayList<>();
 
 
     public List<Product> getProductRepository() {

@@ -1,6 +1,8 @@
 package ru.geekbrains.print;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -10,11 +12,12 @@ import java.io.InputStreamReader;
 @Component
 public class Runner implements CommandLineRunner {
     private final ProductRepository productRepository;
-    private final Cart cart;
+    @Autowired
+    private ApplicationContext applicationContext;
+    private Cart cart;
 
-    public Runner(ProductRepository productRepository, Cart cart) {
+    public Runner(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.cart = cart;
     }
 
     @Override
@@ -22,16 +25,18 @@ public class Runner implements CommandLineRunner {
         System.out.println("Добавьте 5 товаров в список товаров.");
         setAddToProductRepository();
         while(true){
-            System.out.println("Для получения информации о товарах введите -getInfo" + "\n" +
-                    "Для управления корзиной введите -managementCart" + "\n" +
-                    "Для выхода введите -exit");
+            System.out.println("Введите: " + "\n" + "-getInfo, для получения информации о товарах;" + "\n" +
+                    "-manageCart для управления корзиной;" + "\n" +
+                    "-exit для выхода.");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String str = reader.readLine();
             if(str.equals("-getInfo")) getInformation();
-            else if(str.equals("-managementCart")){
-                managementCart();
+            else if(str.equals("-manageCart")){
+                cart = (Cart) applicationContext.getBean("cart");
+                manageCart();
             }
             else if(str.equals("-exit")) break;
+            else System.out.println("Неизвестная команда");
         }
     }
 
@@ -49,10 +54,10 @@ public class Runner implements CommandLineRunner {
     }
 
     public void getInformation(){
+        System.out.println("Введите: " + "\n" + "\"id [id товара]\", для получения информации о конкретном товаре;" + "\n" +
+                "\"allList\" для получения всего списка товаров;" + "\n" +
+                "-exit для выхода из метода.");
         while (true){
-            System.out.println("Введите: " + "\n" + "\"id [id товара]\", для получения информации о конкретном товаре" + "\n" +
-                    "\"allList\" для получения всего списка товаров" + "\n" +
-                    "-exit для выхода из метода");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 String str = reader.readLine();
@@ -65,6 +70,7 @@ public class Runner implements CommandLineRunner {
                 else if(str.startsWith("id")){
                     productRepository.getInformation(str);
                 }
+                else System.out.println("Неизвестная команда");
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -73,12 +79,12 @@ public class Runner implements CommandLineRunner {
         }
     }
 
-    public void managementCart(){
+    public void manageCart(){
+        System.out.println("Введите: " + "\n" + "-add \"id [id товара]\", для добавления товара в корзину;" + "\n" +
+                "-remove \"id [id товара]\", для удаления товара из корзины;" + "\n"+
+                "-getInfo, для получения списка товаров в корзине;" + "\n"+
+                "-exit для выхода из метода.");
         while (true){
-            System.out.println("Введите: " + "\n" + "-add \"id [id товара]\", для добавления товара в корзину" + "\n" +
-                             "-delete \"id [id товара]\", для удаления товара из корзины" + "\n"+
-                    "-getInfo, для получения списка товаров в корзине" + "\n"+
-                    "-exit для выхода из метода");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 String str = reader.readLine();
@@ -90,12 +96,14 @@ public class Runner implements CommandLineRunner {
                         System.out.println(product.getName() + " добавлен в корзину");
                     }
                 }
-                else if(str.startsWith("-delete")){
+                else if(str.startsWith("-remove")){
                     Product product = productRepository.getProductFromRepo(str);
                     if(product == null) System.out.println("Такого товара нет в корзине");
-                    else cart.deleteFromCart(product);
+                    else cart.removeFromCart(product);
                 }
                 else if(str.startsWith("-getInfo")) cart.getInformation();
+                else if(str.startsWith("-exit")) break;
+                else System.out.println("Неизвестная команда");
 
             } catch (IOException e) {
                 e.printStackTrace();
