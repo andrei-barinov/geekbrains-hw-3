@@ -1,0 +1,4 @@
+ru\geekbrains\config\AppConfig.class
+ru\geekbrains\controller\HelloController.class
+ru\geekbrains\Application.class
+ru\geekbrains\config\WebInitializer.class
