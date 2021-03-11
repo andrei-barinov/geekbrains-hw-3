@@ -1,4 +1,4 @@
-package ru.geekbrains.controller;
+package ru.geekbrains.dao;
 
 import org.springframework.stereotype.Component;
 import ru.geekbrains.Product;
@@ -28,5 +28,10 @@ public class RepositoryDAO {
 
     public Product show(int id){
         return productList.stream().filter(product -> product.getId() == id).findAny().orElse(null);
+    }
+
+    public  void save(Product product){
+        product.setId(++PRODUCT_COUNT);
+        productList.add(product);
     }
 }
