@@ -19,4 +19,8 @@ public class ProductService {
     public Product save(Product product){
         return productRepository.save(product);
     }
+
+    public Product show(int id){
+        return productRepository.show(id);
+    }
 }

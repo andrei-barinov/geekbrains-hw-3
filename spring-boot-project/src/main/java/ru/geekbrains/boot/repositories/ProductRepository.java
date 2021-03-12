@@ -25,12 +25,25 @@ public class ProductRepository {
         ));
     }
 
+    public Product show(int id){
+        return productList.stream().filter(product -> product.getId() == id).findAny().orElse(null);
+    }
+
     public Product save(Product product){
+        boolean a = false;
         product.setId(++PRODUCT_COUNT);
         for(int i=0; i < productList.size(); i++){
-            if(productList.get(i).getName().equals(product.getName()) && productList.get(i).getPrice() == product.getPrice()) break;
-            else productList.add(product);
+            if(productList.get(i).getName().equals(product.getName()) && productList.get(i).getPrice() == product.getPrice()){
+                a = true;
+            }
+            else if (productList.get(i).getName().equals(product.getName())){
+                productList.set(i, product);
+                a = true;
+                break;
+            }
+
         }
+        if(!a) productList.add(product);
         return product;
     }
 

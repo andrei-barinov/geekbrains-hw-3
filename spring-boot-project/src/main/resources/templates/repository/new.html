@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <form th:method="POST" th:action="@{/repository}" th:object="${product}">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name of product:</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{name}" class="form-control" id="name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="price" class="col-sm-2 col-form-label">Price of product</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{price}" class="form-control" id="price">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
