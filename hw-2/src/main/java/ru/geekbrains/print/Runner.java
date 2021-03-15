@@ -30,12 +30,16 @@ public class Runner implements CommandLineRunner {
                     "-exit для выхода.");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String str = reader.readLine();
-            if(str.equals("-getInfo")) getInformation();
+            if(str.equals("-getInfo")) {
+                getInformation();
+            }
             else if(str.equals("-manageCart")){
                 cart = (Cart) applicationContext.getBean("cart");
                 manageCart();
             }
-            else if(str.equals("-exit")) break;
+            else if(str.equals("-exit")) {
+                break;
+            }
             else System.out.println("Неизвестная команда");
         }
     }
@@ -90,7 +94,9 @@ public class Runner implements CommandLineRunner {
                 String str = reader.readLine();
                 if(str.startsWith("-add")){
                     Product product = productRepository.getProductFromRepo(str);
-                    if(product == null) System.out.println("Такого товара нет в списке");
+                    if(product == null) {
+                        System.out.println("Такого товара нет в списке");
+                    }
                     else{
                         cart.addToCart(product);
                         System.out.println(product.getName() + " добавлен в корзину");
@@ -98,12 +104,22 @@ public class Runner implements CommandLineRunner {
                 }
                 else if(str.startsWith("-remove")){
                     Product product = productRepository.getProductFromRepo(str);
-                    if(product == null) System.out.println("Такого товара нет в корзине");
-                    else cart.removeFromCart(product);
+                    if(product == null) {
+                        System.out.println("Такого товара нет в корзине");
+                    }
+                    else {
+                        cart.removeFromCart(product);
+                    }
                 }
-                else if(str.startsWith("-getInfo")) cart.getInformation();
-                else if(str.startsWith("-exit")) break;
-                else System.out.println("Неизвестная команда");
+                else if(str.startsWith("-getInfo")) {
+                    cart.getInformation();
+                }
+                else if(str.startsWith("-exit")) {
+                    break;
+                }
+                else {
+                    System.out.println("Неизвестная команда");
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();
