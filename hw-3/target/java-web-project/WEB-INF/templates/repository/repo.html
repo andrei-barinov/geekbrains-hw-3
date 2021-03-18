@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All products</title>
+</head>
+<body>
+
+<div th:each="product : ${productList}">
+  <a th:href = "@{/repository/{id}(id=${product.getId()})}" th:text="${product.getName()}">product</a>
+</div>
+
+</body>
+</html>
