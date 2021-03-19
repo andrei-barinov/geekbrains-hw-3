@@ -1,23 +1,22 @@
 package ru.geekbrains.hw_6.dao;
 
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Component;
+import ru.geekbrains.hw_6.EntityManagerClass;
 import ru.geekbrains.hw_6.entity.Person;
+import ru.geekbrains.hw_6.entity.Product;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import java.util.List;
 
+@Component("personDAO")
 public class PersonDAO {
-    private EntityManagerFactory factory = new Configuration()
-            .configure("hibernate.xml")
-            .buildSessionFactory();
-
-    private EntityManager em = factory.createEntityManager();
-
+    private EntityManager em = (new EntityManagerClass()).getEm();
 
     public Person findById(Long id){
-        Person person = (Person) em.createQuery("select p from Product p where p.id = :id")
+        Person person = (Person) em.createQuery("select p from Person p where p.id = :id", Person.class)
                 .setParameter("id", id)
                 .getSingleResult();
         return person;
@@ -26,7 +25,7 @@ public class PersonDAO {
     private boolean findByName(String name){
         Person person1;
         try {
-            person1 = (Person) em.createQuery("select  p from Product p where p.name = :name")
+            person1 = (Person) em.createQuery("select  p from Person p where p.personName = :name")
                     .setParameter("name", name)
                     .getSingleResult();
             return true;
@@ -36,9 +35,8 @@ public class PersonDAO {
 
     }
 
-
     public List<Person> findAll(){
-        List<Person> productList = (List<Person>) em.createQuery("select p from Product p").getResultList();
+        List<Person> productList = (List<Person>) em.createQuery("select p from Person p").getResultList();
         return productList;
     }
 

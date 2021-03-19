@@ -2,6 +2,8 @@ package ru.geekbrains.hw_6.dao;
 
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Component;
+import ru.geekbrains.hw_6.EntityManagerClass;
+import ru.geekbrains.hw_6.entity.Person;
 import ru.geekbrains.hw_6.entity.Product;
 
 import javax.persistence.EntityManager;
@@ -9,14 +11,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import java.util.List;
 
-@Component
+@Component("productDAO")
 public class ProductDAO {
-    private EntityManagerFactory factory = new Configuration()
-            .configure("hibernate.xml")
-            .buildSessionFactory();
-
-    private EntityManager em = factory.createEntityManager();
-
+    private EntityManager em = (new EntityManagerClass()).getEm();
 
     public Product findById(Long id){
         Product product = (Product) em.createQuery("select p from Product p where p.id = :id")
@@ -37,7 +34,6 @@ public class ProductDAO {
         }
 
     }
-
 
     public List<Product> findAll(){
         List<Product> productList = (List<Product>) em.createQuery("select p from Product p").getResultList();

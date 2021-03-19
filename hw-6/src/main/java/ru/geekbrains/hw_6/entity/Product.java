@@ -5,12 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @NoArgsConstructor
 @Data
 @Entity
-
 public class Product {
     public Product(String name, int price) {
         this.name = name;
@@ -28,13 +28,21 @@ public class Product {
     @Column(name = "price", length = 128)
     private int price;
 
+    @ManyToMany
+    @JoinTable(name = "product_person",
+            joinColumns = @JoinColumn(name ="product_id"),
+            inverseJoinColumns = @JoinColumn(name = "person_id"))
+    private List<Person> persons;
 
     @Override
     public String toString() {
-        return "Product: [" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ']';
+        return String.format("[product: %s, price: %s]", getName(), getPrice());
+    }
+
+    public void printProduct(){
+        System.out.println("----------------------------");
+        System.out.println("Товар: " + this.getName() + " | " +
+                "Цена: " + this.getPrice());
+        System.out.println("----------------------------");
     }
 }
