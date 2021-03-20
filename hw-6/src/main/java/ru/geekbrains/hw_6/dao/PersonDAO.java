@@ -10,16 +10,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import java.util.List;
+import java.util.Optional;
 
 @Component("personDAO")
 public class PersonDAO {
     private EntityManager em = (new EntityManagerClass()).getEm();
 
-    public Person findById(Long id){
+    public Optional<Person> findById(Long id){
         Person person = (Person) em.createQuery("select p from Person p where p.id = :id", Person.class)
                 .setParameter("id", id)
                 .getSingleResult();
-        return person;
+        return Optional.of(person);
     }
 
     private boolean findByName(String name){
@@ -42,9 +43,14 @@ public class PersonDAO {
 
     public void deleteById(Long id){
         em.getTransaction().begin();
-        em.remove(findById(id));
-        em.getTransaction().commit();
-        System.out.println("Объект успешно удален из БД");
+        if(findById(id).isPresent()){
+            em.remove(findById(id).get());
+            em.getTransaction().commit();
+            System.out.println("Информация о человеке успешно удалена из БД");
+        } else {
+            System.out.println("Человека с таким id нет в БД");
+        }
+
     }
 
     public Person saveOrUpdate(Person person){

@@ -10,16 +10,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import java.util.List;
+import java.util.Optional;
 
 @Component("productDAO")
 public class ProductDAO {
     private EntityManager em = (new EntityManagerClass()).getEm();
 
-    public Product findById(Long id){
+    public Optional<Product> findById(Long id){
         Product product = (Product) em.createQuery("select p from Product p where p.id = :id")
                 .setParameter("id", id)
                 .getSingleResult();
-        return product;
+        return Optional.of(product);
     }
 
     private boolean findByName(String name){
@@ -42,9 +43,14 @@ public class ProductDAO {
 
     public void deleteById(Long id){
         em.getTransaction().begin();
-        em.remove(findById(id));
-        em.getTransaction().commit();
-        System.out.println("Объект успешно удален из БД");
+        if(findById(id).isPresent()){
+            em.remove(findById(id));
+            em.getTransaction().commit();
+            System.out.println("Продукт успешно удален из БД");
+        } else{
+            System.out.println("Продукта с таким id нет в БД");
+        }
+
     }
 
     public Product saveOrUpdate(Product product){

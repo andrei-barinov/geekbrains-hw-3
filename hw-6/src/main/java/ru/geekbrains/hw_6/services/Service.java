@@ -22,15 +22,24 @@ public class Service {
     }
 
     public void getInformationByIdPerson(Long id){
-        String name = personDAO.findById(id).getPersonName();
-        List<Product> productList = this.getListOfProductByIdPerson(id);
-
-        for(int i =0; i < productList.size(); i++){
-            System.out.println("-----------------------");
-            System.out.println("Покупатель: " + name + "\n" + "Товар: " +
-                    productList.get(i).getName() + "\n" + "Цена: " + productList.get(i).getPrice());
-            System.out.println("-----------------------");
+        if(personDAO.findById(id).isPresent()){
+            String name = personDAO.findById(id).get().getPersonName();
+            List<Product> productList = this.getListOfProductByIdPerson(id);
+            if(productList.isEmpty()){
+                System.out.println(name + " не совершал покупок");
+            } else {
+                for(int i =0; i < productList.size(); i++){
+                    System.out.println("-----------------------");
+                    System.out.println("Покупатель: " + name + "\n" + "Товар: " +
+                            productList.get(i).getName() + "\n" + "Цена: " + productList.get(i).getPrice());
+                    System.out.println("-----------------------");
+                }
+            }
         }
+        else {
+            System.out.println("Человека с таким id нет в БД");
+        }
+
     }
 
 
@@ -43,6 +52,7 @@ public class Service {
         List<Person> list = new ArrayList<Person>(set);
         return list;
     }
+
 
     public List<Product> getListOfProductByIdPerson(Long id){
         List<Product> productList = (List<Product>) em.createQuery("select product from Product product left join product.persons person where person.id = :id", Product.class)
