@@ -17,10 +17,14 @@ public class PersonDAO {
     private EntityManager em = (new EntityManagerClass()).getEm();
 
     public Optional<Person> findById(Long id){
-        Person person = (Person) em.createQuery("select p from Person p where p.id = :id", Person.class)
-                .setParameter("id", id)
-                .getSingleResult();
-        return Optional.of(person);
+        try{
+            Person person = (Person) em.createQuery("select p from Person p where p.id = :id", Person.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
+            return Optional.of(person);
+        } catch (NoResultException ex){
+            return Optional.ofNullable(null);
+        }
     }
 
     private boolean findByName(String name){
