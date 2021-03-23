@@ -15,7 +15,7 @@ public class ProductController {
     private final ProductRepository productRepository;
 
     @GetMapping
-    public List<Product> showAll(Model model) {
+    public List<Product> showAll() {
         return productRepository.findAll();
     }
 
@@ -25,14 +25,13 @@ public class ProductController {
     }
 
     @GetMapping("/delete/{id}")
-    public List<Product> deleteProductById(@PathVariable Long id){
+    public void deleteProductById(@PathVariable Long id){
         productRepository.deleteById(id);
-        return productRepository.findAll();
     }
 
     @GetMapping("/search_by_min_price")
     public List<Product> searchByMinPrice(@RequestParam(name = "min_price")  int minPrice){
-        return productRepository.findAllByPriceGreaterThan(minPrice);
+        return productRepository.findAllByPriceGreaterThanEqual(minPrice);
     }
 
     @GetMapping("/search_by_max_price")
@@ -41,8 +40,11 @@ public class ProductController {
     }
 
     @GetMapping("/search_between")
-    public List<Product> searchByPriceBetweenMinPriceAndMaxPrice(@RequestParam(name = "min_price") int minPrice,
-                                                                 @RequestParam(name = "max_price") int maxPrice){
+    public List<Product> searchByPriceBetweenMinPriceAndMaxPrice(@RequestParam(required = false, name = "min_price") Integer minPrice,
+                                                                 @RequestParam(required = false, name = "max_price") Integer maxPrice){
+        if(minPrice != null && maxPrice != null){
+            productRepository.findAllByPriceBetween(minPrice, maxPrice);
+        }
         return productRepository.findAllByPriceBetween(minPrice, maxPrice);
     }
 
