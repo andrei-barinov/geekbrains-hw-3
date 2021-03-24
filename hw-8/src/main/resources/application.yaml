@@ -1,1 +1,12 @@
+server:
+  port: 8189
+  servlet:
+    context-path: /hw_8
 
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_hw_7
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
