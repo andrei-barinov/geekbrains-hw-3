@@ -1,9 +1,7 @@
 package ru.geekbrains.hw8.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.geekbrains.hw8.model.Product;
 import ru.geekbrains.hw8.services.ProductService;
 
@@ -21,8 +19,18 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public  Product findProductById(Long id){
+    public  Product findProductById(@PathVariable Long id){
         return productService.findProductById(id).get();
+    }
+
+    @DeleteMapping
+    public void deleteProductById(@RequestParam Long id){
+        productService.deleteProductById(id);
+    }
+
+    @PostMapping
+    public Product saveNewProduct(@RequestBody Product product){
+        return productService.saveOrUpdate(product);
     }
 
 }
