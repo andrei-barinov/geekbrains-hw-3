@@ -14,7 +14,11 @@ import java.util.Optional;
 
 @Component("personDAO")
 public class PersonDAO {
-    private EntityManager em = (new EntityManagerClass()).getEm();
+    private EntityManager em ;
+
+    public PersonDAO() {
+        this.em = (new EntityManagerClass()).getEm();
+    }
 
     public Optional<Person> findById(Long id){
         try{

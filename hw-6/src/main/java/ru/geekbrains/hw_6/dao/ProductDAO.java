@@ -14,7 +14,11 @@ import java.util.Optional;
 
 @Component("productDAO")
 public class ProductDAO {
-    private EntityManager em = (new EntityManagerClass()).getEm();
+    private EntityManager em;
+
+    public ProductDAO() {
+        this.em = (new EntityManagerClass()).getEm();
+    }
 
     public Optional<Product> findById(Long id){
         Product product = (Product) em.createQuery("select p from Product p where p.id = :id")
