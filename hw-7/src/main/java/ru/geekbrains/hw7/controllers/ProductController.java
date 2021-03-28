@@ -15,13 +15,18 @@ public class ProductController {
     private final ProductRepository productRepository;
 
     @GetMapping
-    public List<Product> showAll() {
+    public List<Product> searchByPriceBetweenMinPriceAndMaxPrice(@RequestParam(required = false, name = "min_price") Integer minPrice,
+                                                                 @RequestParam(required = false, name = "max_price") Integer maxPrice){
+        if(minPrice != null && maxPrice != null){
+            return productRepository.findAllByPriceBetween(minPrice, maxPrice);
+        }
+        else if(minPrice != null){
+            return productRepository.findAllByPriceGreaterThanEqual(minPrice);
+        }
+        else if(maxPrice != null){
+            return productRepository.findAllByPriceLessThanEqual(maxPrice);
+        }
         return productRepository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public Product getProductById(@PathVariable Long id){
-        return productRepository.findById(id).get();
     }
 
     @GetMapping("/delete/{id}")
@@ -29,24 +34,6 @@ public class ProductController {
         productRepository.deleteById(id);
     }
 
-    @GetMapping("/search_by_min_price")
-    public List<Product> searchByMinPrice(@RequestParam(name = "min_price")  int minPrice){
-        return productRepository.findAllByPriceGreaterThanEqual(minPrice);
-    }
-
-    @GetMapping("/search_by_max_price")
-    public List<Product> searchByMaxPrice(@RequestParam(name = "max_price") int maxPrice){
-        return productRepository.findAllByPriceLessThanEqual(maxPrice);
-    }
-
-    @GetMapping("/search_between")
-    public List<Product> searchByPriceBetweenMinPriceAndMaxPrice(@RequestParam(required = false, name = "min_price") Integer minPrice,
-                                                                 @RequestParam(required = false, name = "max_price") Integer maxPrice){
-        if(minPrice != null && maxPrice != null){
-            productRepository.findAllByPriceBetween(minPrice, maxPrice);
-        }
-        return productRepository.findAllByPriceBetween(minPrice, maxPrice);
-    }
 
     @PostMapping()
     public Product save(@RequestBody Product product){
