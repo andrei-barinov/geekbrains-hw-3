@@ -1,6 +1,8 @@
 package ru.geekbrains.hw8.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.hw8.model.Product;
 import ru.geekbrains.hw8.repositories.ProductRepository;
@@ -19,6 +21,10 @@ public class ProductService {
 
     public List<Product> findAll(){
         return productRepository.findAll();
+    }
+
+    public Page<Product> findAll(int page){
+        return productRepository.findAll(PageRequest.of(page-1, 10));
     }
 
     public Product saveOrUpdate(Product product){
