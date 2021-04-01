@@ -30,7 +30,6 @@ public class ProductController {
 
     @PostMapping
     public Product saveNewProduct(@RequestBody Product product){
-        product.setId(0L);
         return productService.saveOrUpdate(product);
     }
 
