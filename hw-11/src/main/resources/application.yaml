@@ -1,0 +1,14 @@
+server:
+  port: 8189
+  servlet:
+    context-path: /app/v1
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/market
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+welcom:
+  to: 'market'
