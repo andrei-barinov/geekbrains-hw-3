@@ -39,4 +39,6 @@ alter table person add column login varchar(128);
 alter table person add column password varchar(128);
 alter table person add foreign key (role_id) references role(id);
 insert into role (id, name) values ('cc839990-4997-4212-8709-e5eda3324994', 'ROLE_ADMIN');
+insert into role(id, name) values('19b05a72-2c4d-4f0c-8eb8-c734db9ff542', 'ROLE_MANAGER');
+insert into role(id, name) values('18c2f73d-e893-4c98-a871-e3928152ea00', 'ROLE_USER');
 select * from person;

@@ -6,8 +6,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.entity.Product;
 import ru.geekbrains.repositories.ProductRepository;
-
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,13 +17,10 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    public List<Product> findAll(){
-        return productRepository.findAll();
-    }
-
     public Product saveOrUpdate(Product product){
         return productRepository.save(product);
     }
+
 
     public void deleteProductById(Long id){
         productRepository.deleteById(id);

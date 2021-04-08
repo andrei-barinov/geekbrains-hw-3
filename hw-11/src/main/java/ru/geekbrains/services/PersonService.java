@@ -1,8 +1,11 @@
 package ru.geekbrains.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.entity.Person;
+import ru.geekbrains.entity.Product;
 import ru.geekbrains.repositories.PersonRepository;
 
 
@@ -32,5 +35,9 @@ public class PersonService {
 
     public void save(Person person) {
         personRepository.save(person);
+    }
+
+    public Page<Person> findAll(int page){
+        return personRepository.findAll(PageRequest.of(page-1, 10));
     }
 }

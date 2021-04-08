@@ -14,15 +14,15 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@ApiModelProperty(value = "id товара", required = false)
     @Column(name = "id")
-    @ApiModelProperty(value = "id товара", required = false)
     private Long id;
 
+    //@ApiModelProperty(value = "Название товара", required = true)
     @Column(name = "title", length = 128)
-    @ApiModelProperty(value = "Название товара", required = true)
     private String title;
 
-    @ApiModelProperty(name = "Цена товара", required = true)
+    //@ApiModelProperty(name = "Цена товара", required = true)
     @Column(name = "price")
     private int price;
 }

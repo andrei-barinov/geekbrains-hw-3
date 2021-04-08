@@ -10,5 +10,3 @@ spring:
     password: postgres
   jpa:
     show-sql: true
-welcom:
-  to: 'market'

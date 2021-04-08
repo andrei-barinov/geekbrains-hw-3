@@ -14,7 +14,7 @@ public class ProductController {
 
     @GetMapping
     public Page<Product> findAllProducts(
-            @RequestParam(name = "name", required = false) String name,
+            @RequestParam(name = "title", required = false) String title,
             @RequestParam(name = "p", defaultValue = "1") Integer page
     ){
         if(page < 1){
