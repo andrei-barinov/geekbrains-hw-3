@@ -17,7 +17,7 @@ import java.util.Optional;
 public class PersonService {
     private final PersonRepository personRepository;
 
-    public Optional<Person> findProductById(Long id){
+    public Optional<Person> findPersonById(Long id){
         return personRepository.findById(id);
     }
 
@@ -40,4 +40,5 @@ public class PersonService {
     public Page<Person> findAll(int page){
         return personRepository.findAll(PageRequest.of(page-1, 10));
     }
+
 }

@@ -18,9 +18,14 @@ public class ProductService {
     }
 
     public Product saveOrUpdate(Product product){
-        return productRepository.save(product);
+        if(productRepository.findProductByTitle(product.getTitle()).isPresent()){
+            productRepository.setNewPrice(product.getPrice(), product.getTitle());
+            return product;
+        }
+        else {
+            return productRepository.save(product);
+        }
     }
-
 
     public void deleteProductById(Long id){
         productRepository.deleteById(id);
@@ -29,5 +34,7 @@ public class ProductService {
     public Page<Product> findAll(int page){
         return productRepository.findAll(PageRequest.of(page-1, 10));
     }
+
+
 
 }

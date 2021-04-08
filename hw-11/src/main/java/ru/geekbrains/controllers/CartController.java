@@ -9,6 +9,7 @@ import ru.geekbrains.entity.Product;
 import ru.geekbrains.exception.PersonNotFoundException;
 import ru.geekbrains.exception.ProductNotFoundException;
 import ru.geekbrains.repositories.PersonRepository;
+import ru.geekbrains.services.PersonService;
 import ru.geekbrains.services.ProductService;
 
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.Map;
 public class CartController {
     private final Cart cart;
     private final ProductService productService;
-    private final PersonRepository personRepository;
+    private final PersonService personService;
 
     @ApiOperation("Узнать содержимое корзины")
     @GetMapping
@@ -39,7 +40,7 @@ public class CartController {
     @GetMapping("/add")
     public int addProduct(@RequestParam(name = "person") Long idPerson,
                             @RequestParam(name = "product") Long idProduct){
-        personRepository.findById(idPerson).orElseThrow(() -> new PersonNotFoundException(
+        personService.findPersonById(idPerson).orElseThrow(() -> new PersonNotFoundException(
                 String.format("Не найден человек с индитификатором %s", idPerson)));
 
         Product product = productService.findProductById(idProduct).orElseThrow(() -> new ProductNotFoundException(

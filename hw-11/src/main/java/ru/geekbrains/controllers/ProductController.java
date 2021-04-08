@@ -36,4 +36,6 @@ public class ProductController {
     @PostMapping
     public Product saveNewProduct(@RequestBody Product product){
         return productService.saveOrUpdate(product);
-    }}
+    }
+
+}

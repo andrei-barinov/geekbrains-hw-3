@@ -32,7 +32,7 @@ public class PersonController {
 
     @GetMapping("/{id}")
     public Person getProductById(@PathVariable Long id) {
-        return personService.findProductById(id).orElseThrow(() -> new PersonNotFoundException(
+        return personService.findPersonById(id).orElseThrow(() -> new PersonNotFoundException(
                 String.format("Не найден человек с индитификатором %s", id)
         ));
     }
