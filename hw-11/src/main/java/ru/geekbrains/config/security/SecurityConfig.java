@@ -12,10 +12,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-
                 .authorizeRequests()
-                .antMatchers("/persons").hasRole("ADMIN")
-                .antMatchers("/**").hasAnyRole("ADMIN", "MANAGER")
+                .antMatchers("/user_service.html").hasRole("SUPER_ADMIN")
+                .antMatchers("/users.html").hasAnyRole("ADMIN", "SUPER_ADMIN")
+                .antMatchers("/**").hasAnyRole("ADMIN", "MANAGER", "SUPER_ADMIN")
                 .anyRequest().permitAll()
                 .and()
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())

@@ -5,11 +5,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import ru.geekbrains.dto.PersonDTO;
 import ru.geekbrains.entity.Person;
 import ru.geekbrains.exception.PersonNotFoundException;
 import ru.geekbrains.services.PersonService;
-
-import java.util.List;
+import ru.geekbrains.services.RoleService;
 
 
 @RestController
@@ -17,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PersonController {
     private final PersonService personService;
+    private final RoleService roleService;
 
     @GetMapping
     public Page<Person> findAllPerson(
@@ -37,9 +38,21 @@ public class PersonController {
         ));
     }
 
+    @PostMapping("/user_service")
+    public Person saveNewPerson(@RequestBody PersonDTO personDTO) {
 
-    @PostMapping
-    public Person saveNewProduct(@RequestBody Person person) {
+        String nameRole = "ROLE_" + personDTO.getRole()
+                .replace("rA", "r_A")
+                .toUpperCase();
+        personDTO.setPassword("{noop}" + personDTO.getPassword());
+
+        Person person = new Person(
+                personDTO.getPersonName(),
+                roleService.findRoleByName(nameRole),
+                personDTO.getLogin(),
+                personDTO.getPassword()
+        );
+
         return personService.saveOrUpdate(person);
     }
 
@@ -50,7 +63,7 @@ public class PersonController {
 
     @DeleteMapping("/{id}")
     public int deleteProduct(@PathVariable Long id) {
-        personService.deleteProductById(id);
+        personService.deletePersonById(id);
         return HttpStatus.OK.value();
     }
 }

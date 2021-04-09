@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @NoArgsConstructor
 @Data
@@ -22,11 +23,20 @@ public class Person {
 
     @ManyToOne
     private Role role;
+
     private String login;
+
     private String password;
 
     public Person(String personName) {
         this.personName = personName;
+    }
+
+    public Person(String personName, Role role, String login, String password) {
+        this.personName = personName;
+        this.role = role;
+        this.login = login;
+        this.password = password;
     }
 
     @Override

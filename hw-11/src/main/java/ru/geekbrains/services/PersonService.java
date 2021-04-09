@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.entity.Person;
-import ru.geekbrains.entity.Product;
 import ru.geekbrains.repositories.PersonRepository;
 
 
@@ -26,15 +25,20 @@ public class PersonService {
     }
 
     public Person saveOrUpdate(Person person){
-        return personRepository.save(person);
+        if(personRepository.findByLogin(person.getLogin()).isPresent()){
+            personRepository.setNewNameAndPasswordAndRole(
+                    person.getPersonName(),
+                    person.getRole().getId(),
+                    person.getLogin(),
+                    person.getPassword());
+            return person;
+        }else {
+            return personRepository.save(person);
+        }
     }
 
-    public void deleteProductById(Long id){
+    public void deletePersonById(Long id){
         personRepository.deleteById(id);
-    }
-
-    public void save(Person person) {
-        personRepository.save(person);
     }
 
     public Page<Person> findAll(int page){

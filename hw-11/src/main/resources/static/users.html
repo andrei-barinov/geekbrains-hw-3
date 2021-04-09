@@ -20,15 +20,11 @@
         <thead>
         <tr>
             <td>Имя пользователя</td>
-            <td></td>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="p in PersonPage.content">
             <td>{{p.personName}}</td>
-            <td>
-                <button class="btn btn-danger" ng-click="deletePersonById(p.id)">Удалить пользователя</button>
-            </td>
         </tr>
         </tbody>
     </table>
