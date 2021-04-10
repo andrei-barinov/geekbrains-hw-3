@@ -44,7 +44,6 @@ public class PersonController {
         String nameRole = "ROLE_" + personDTO.getRole()
                 .replace("rA", "r_A")
                 .toUpperCase();
-        personDTO.setPassword("{noop}" + personDTO.getPassword());
 
         Person person = new Person(
                 personDTO.getPersonName(),

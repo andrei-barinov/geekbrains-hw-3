@@ -1,8 +1,10 @@
 package ru.geekbrains.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.entity.Person;
 import ru.geekbrains.repositories.PersonRepository;
@@ -16,6 +18,9 @@ import java.util.Optional;
 public class PersonService {
     private final PersonRepository personRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     public Optional<Person> findPersonById(Long id){
         return personRepository.findById(id);
     }
@@ -25,12 +30,15 @@ public class PersonService {
     }
 
     public Person saveOrUpdate(Person person){
+        person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
+
         if(personRepository.findByLogin(person.getLogin()).isPresent()){
             personRepository.setNewNameAndPasswordAndRole(
                     person.getPersonName(),
                     person.getRole().getId(),
                     person.getLogin(),
-                    person.getPassword());
+                    person.getPassword()
+            );
             return person;
         }else {
             return personRepository.save(person);
