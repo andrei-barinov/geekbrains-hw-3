@@ -39,5 +39,23 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             });
     };
 
+    $scope.addToCart = function (id) {
+        $http.get(contextPath + '/cart/add' + id)
+            .then(function (response) {
+                $scope.showCart();
+            });
+    };
+
+    $scope.showCart = function () {
+        $http({
+            url:contextPath + '/cart',
+            method: 'GET',
+        })
+            .then(function (response) {
+                $scope.Cart = response.data;
+            });
+    };
+
     $scope.fillTable();
+    $scope.showCart();
 });
