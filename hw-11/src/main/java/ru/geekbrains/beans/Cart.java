@@ -46,6 +46,11 @@ public class Cart {
         recalculate();
     }
 
+    public void clear(){
+        items.clear();
+        recalculate();
+    }
+
     public void recalculate(){
         totalPrice = 0;
         for(OrderItem o: items){

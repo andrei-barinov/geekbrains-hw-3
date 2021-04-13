@@ -13,12 +13,17 @@ public class CartController {
     private final Cart cart;
 
     @GetMapping
-    public CartDto detCart(){
+    public CartDto getCart(){
         return new CartDto(cart);
     }
 
     @GetMapping("/add/{id}")
     public void addToCart(@PathVariable Long id){
         cart.addToCart(id);
+    }
+
+    @GetMapping("/clear")
+    public void clearCart(){
+        cart.clear();
     }
 }

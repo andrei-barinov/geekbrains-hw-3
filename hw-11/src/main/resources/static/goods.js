@@ -40,7 +40,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     };
 
     $scope.addToCart = function (id) {
-        $http.get(contextPath + '/cart/add' + id)
+        $http.get(contextPath + '/cart/add/' + id)
             .then(function (response) {
                 $scope.showCart();
             });
@@ -55,6 +55,13 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
                 $scope.Cart = response.data;
             });
     };
+
+    $scope.clearCart = function () {
+        $http.get(contextPath + '/cart/clear')
+            .then(function (response) {
+                $scope.showCart();
+            });
+    }
 
     $scope.fillTable();
     $scope.showCart();
