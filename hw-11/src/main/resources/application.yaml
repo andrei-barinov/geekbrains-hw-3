@@ -10,3 +10,5 @@ spring:
     password: postgres
   jpa:
     show-sql: true
+jwt:
+  secret: 34klj42nb3e23445gghd32l54ure202gh43qrucvjrvtp854iobcdju54
