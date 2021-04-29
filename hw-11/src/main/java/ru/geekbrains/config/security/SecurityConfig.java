@@ -43,16 +43,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
        http
                .csrf().disable()
-               //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                .authorizeRequests()
                .antMatchers("/app/v1/**").authenticated()
                .antMatchers("/user_service.html").hasRole("SUPER_ADMIN")
                .antMatchers("/users.html").hasAnyRole("ADMIN", "SUPER_ADMIN")
-               .antMatchers("/goods.html").hasAnyRole("ADMIN", "MANAGER", "SUPER_ADMIN")
+               .antMatchers("/index.html").hasAnyRole("ADMIN", "MANAGER", "SUPER_ADMIN")
                .anyRequest().permitAll()
                .and()
-               .formLogin()
-               .and()
+               //.formLogin()
+               //.and()
                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                .and()
                .headers().frameOptions().disable();

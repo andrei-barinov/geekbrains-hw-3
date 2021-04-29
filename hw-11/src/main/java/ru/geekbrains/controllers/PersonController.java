@@ -13,7 +13,7 @@ import ru.geekbrains.services.RoleService;
 
 
 @RestController
-@RequestMapping("/persons")
+@RequestMapping("/api/v1/persons")
 @RequiredArgsConstructor
 public class PersonController {
     private final PersonService personService;

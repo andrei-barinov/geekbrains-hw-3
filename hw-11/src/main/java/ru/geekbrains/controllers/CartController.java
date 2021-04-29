@@ -7,7 +7,7 @@ import ru.geekbrains.dto.CartDto;
 
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("/api/v1/cart")
 @RequiredArgsConstructor
 public class CartController {
     private final Cart cart;
