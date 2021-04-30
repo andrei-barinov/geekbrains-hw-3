@@ -42,3 +42,25 @@ insert into role (id, name) values ('cc839990-4997-4212-8709-e5eda3324994', 'ROL
 insert into role(id, name) values('19b05a72-2c4d-4f0c-8eb8-c734db9ff542', 'ROLE_MANAGER');
 insert into role(id, name) values('18c2f73d-e893-4c98-a871-e3928152ea00', 'ROLE_USER');
 select * from person;
+
+drop table orders cascade;
+create table orders (
+                        id bigserial primary key,
+                        person_id bigint references person(id),
+                        price int,
+                        created_at timestamp default current_timestamp,
+                        updated_at timestamp default current_timestamp
+);
+
+drop table order_items cascade;
+create table order_items (
+                             id bigserial primary key,
+                             order_id bigint references orders(id),
+                             product_id bigint references product(id),
+                             title varchar(255),
+                             quantity int,
+                             price_per_product int,
+                             price int,
+                             created_at timestamp default current_timestamp,
+                             updated_at timestamp default current_timestamp
+);

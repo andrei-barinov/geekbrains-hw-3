@@ -6,13 +6,13 @@ import ru.geekbrains.entity.OrderItem;
 
 @NoArgsConstructor
 @Data
-public class OrderItemDto {
+public class OrderItemDTO {
     private String productTitle;
     private int quantity;
     private int PricePerProduct;
     private int price;
 
-    public OrderItemDto(OrderItem orderItem){
+    public OrderItemDTO(OrderItem orderItem){
         this.productTitle = orderItem.getProduct().getTitle();
         this.quantity = orderItem.getQuantity();
         this.PricePerProduct = orderItem.getPricePerProduct();

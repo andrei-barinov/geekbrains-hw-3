@@ -3,7 +3,7 @@ package ru.geekbrains.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.geekbrains.beans.Cart;
-import ru.geekbrains.dto.CartDto;
+import ru.geekbrains.dto.CartDTO;
 
 
 @RestController
@@ -13,8 +13,8 @@ public class CartController {
     private final Cart cart;
 
     @GetMapping
-    public CartDto getCart(){
-        return new CartDto(cart);
+    public CartDTO getCart(){
+        return new CartDTO(cart);
     }
 
     @GetMapping("/add/{id}")

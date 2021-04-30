@@ -1,4 +1,4 @@
-package ru.geekbrains.config.security;
+package ru.geekbrains.beans;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.RequiredArgsConstructor;

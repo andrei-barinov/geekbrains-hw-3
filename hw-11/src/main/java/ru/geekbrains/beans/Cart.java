@@ -4,6 +4,7 @@ package ru.geekbrains.beans;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import ru.geekbrains.dto.ProductDTO;
 import ru.geekbrains.entity.OrderItem;
 import ru.geekbrains.entity.Product;
 import ru.geekbrains.exception.NotFoundException;
@@ -36,6 +37,7 @@ public class Cart {
         for(OrderItem o: items){
             if(o.getProduct().getId().equals(id)){
                 o.incrementQuantity();
+                recalculate();
                 return;
             }
         }
