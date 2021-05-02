@@ -30,7 +30,7 @@ public class Order {
     private int price;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "owner_id")
     private Person owner;
 
     @CreationTimestamp
