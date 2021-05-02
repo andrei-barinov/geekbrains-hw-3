@@ -1,0 +1,21 @@
+server:
+  port: 8189
+  servlet:
+    context-path: /store
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_store?currentSchema=store
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+jwt:
+  secret: 34klj42nb3e23445gghd32l54ure202gh43qrucvjrvtp854iobcdju54
+
+logging:
+  file:
+    path: logs
+  pattern:
+    file: '%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n'
+    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n'
