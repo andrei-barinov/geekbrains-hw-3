@@ -1,0 +1,110 @@
+02-05-2021 09:17:37.414 [main] INFO  ru.geekbrains.Hw10Application.logStarting - Starting Hw10Application using Java 15.0.1 on PC with PID 6836 (C:\Users\Андрей\Desktop\geekbrains-hw-3\hw-11\target\classes started by Андрей in C:\Users\Андрей\Desktop\geekbrains-hw-3\hw-11)
+02-05-2021 09:17:37.416 [main] INFO  ru.geekbrains.Hw10Application.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+02-05-2021 09:17:37.927 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+02-05-2021 09:17:37.971 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 40 ms. Found 4 JPA repository interfaces.
+02-05-2021 09:17:38.271 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8189 (http)
+02-05-2021 09:17:38.276 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+02-05-2021 09:17:38.276 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.44]
+02-05-2021 09:17:38.347 [main] INFO  o.a.c.c.C.[.[localhost].[/store].log - Initializing Spring embedded WebApplicationContext
+02-05-2021 09:17:38.348 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 908 ms
+02-05-2021 09:17:38.430 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+02-05-2021 09:17:38.486 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+02-05-2021 09:17:38.512 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+02-05-2021 09:17:38.533 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.29.Final
+02-05-2021 09:17:38.584 [main] INFO  o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+02-05-2021 09:17:38.637 [main] INFO  org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+02-05-2021 09:17:38.973 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+02-05-2021 09:17:38.979 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+02-05-2021 09:17:39.176 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+02-05-2021 09:17:39.420 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+02-05-2021 09:17:39.473 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47d0195b, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a6871ad, org.springframework.security.web.header.HeaderWriterFilter@2835b3d1, org.springframework.security.web.authentication.logout.LogoutFilter@4cd079fe, ru.geekbrains.beans.JwtRequestFilter@4c18516, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3338d29d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@75aeec0a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6de2344a, org.springframework.security.web.session.SessionManagementFilter@28532753, org.springframework.security.web.access.ExceptionTranslationFilter@72851503, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@372e972d]
+02-05-2021 09:17:39.518 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+02-05-2021 09:17:39.545 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping.<init> - Adding welcome page: class path resource [static/index.html]
+02-05-2021 09:17:39.614 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8189 (http) with context path '/store'
+02-05-2021 09:17:39.615 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+02-05-2021 09:17:39.623 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+02-05-2021 09:17:39.639 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+02-05-2021 09:17:39.796 [main] INFO  ru.geekbrains.Hw10Application.logStarted - Started Hw10Application in 2.61 seconds (JVM running for 2.978)
+02-05-2021 09:17:42.727 [http-nio-8189-exec-1] INFO  o.a.c.c.C.[.[localhost].[/store].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+02-05-2021 09:17:42.727 [http-nio-8189-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+02-05-2021 09:17:42.728 [http-nio-8189-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 1 ms
+02-05-2021 09:17:44.966 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:17:44.967 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:17:44.967 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 1
+02-05-2021 09:17:45.995 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:17:45.996 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:17:45.996 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 1
+02-05-2021 09:17:46.467 [http-nio-8189-exec-10] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:17:46.467 [http-nio-8189-exec-10] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:17:46.468 [http-nio-8189-exec-10] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 2
+02-05-2021 09:17:47.947 [http-nio-8189-exec-2] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:17:47.948 [http-nio-8189-exec-2] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:17:47.948 [http-nio-8189-exec-2] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 4
+02-05-2021 09:17:48.435 [http-nio-8189-exec-3] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:17:48.436 [http-nio-8189-exec-3] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:17:48.436 [http-nio-8189-exec-3] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 5
+02-05-2021 09:17:50.324 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:17:50.324 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:17:50.325 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 3
+02-05-2021 09:17:50.908 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:17:50.908 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:17:50.908 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 4
+02-05-2021 09:30:19.630 [main] INFO  ru.geekbrains.Hw10Application.logStarting - Starting Hw10Application using Java 15.0.1 on PC with PID 6948 (C:\Users\Андрей\Desktop\geekbrains-hw-3\hw-11\target\classes started by Андрей in C:\Users\Андрей\Desktop\geekbrains-hw-3\hw-11)
+02-05-2021 09:30:19.631 [main] INFO  ru.geekbrains.Hw10Application.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+02-05-2021 09:30:20.138 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+02-05-2021 09:30:20.182 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 39 ms. Found 4 JPA repository interfaces.
+02-05-2021 09:30:20.482 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8189 (http)
+02-05-2021 09:30:20.486 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+02-05-2021 09:30:20.487 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.44]
+02-05-2021 09:30:20.559 [main] INFO  o.a.c.c.C.[.[localhost].[/store].log - Initializing Spring embedded WebApplicationContext
+02-05-2021 09:30:20.559 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 901 ms
+02-05-2021 09:30:20.639 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+02-05-2021 09:30:20.697 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+02-05-2021 09:30:20.724 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+02-05-2021 09:30:20.744 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.29.Final
+02-05-2021 09:30:20.795 [main] INFO  o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+02-05-2021 09:30:20.847 [main] INFO  org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+02-05-2021 09:30:21.190 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+02-05-2021 09:30:21.195 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+02-05-2021 09:30:21.394 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+02-05-2021 09:30:21.637 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+02-05-2021 09:30:21.690 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74159dc9, org.springframework.security.web.context.SecurityContextPersistenceFilter@26bbbe9e, org.springframework.security.web.header.HeaderWriterFilter@75aeec0a, org.springframework.security.web.authentication.logout.LogoutFilter@3ba015b1, ru.geekbrains.beans.JwtRequestFilter@76396509, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@714d7c7b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f4b8027, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53086bdc, org.springframework.security.web.session.SessionManagementFilter@218fc40d, org.springframework.security.web.access.ExceptionTranslationFilter@4e312811, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@12d8e6b6]
+02-05-2021 09:30:21.738 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+02-05-2021 09:30:21.766 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping.<init> - Adding welcome page: class path resource [static/index.html]
+02-05-2021 09:30:21.841 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8189 (http) with context path '/store'
+02-05-2021 09:30:21.841 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+02-05-2021 09:30:21.849 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+02-05-2021 09:30:21.866 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+02-05-2021 09:30:22.018 [main] INFO  ru.geekbrains.Hw10Application.logStarted - Started Hw10Application in 2.611 seconds (JVM running for 2.982)
+02-05-2021 09:30:25.825 [http-nio-8189-exec-1] INFO  o.a.c.c.C.[.[localhost].[/store].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+02-05-2021 09:30:25.825 [http-nio-8189-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+02-05-2021 09:30:25.826 [http-nio-8189-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 1 ms
+02-05-2021 09:30:25.977 [http-nio-8189-exec-5] INFO  ru.geekbrains.beans.AppLoggingAspect.afterGetCartMethodInCartControllersClass - CartDTO(items=[], totalPrice=0)
+02-05-2021 09:30:40.761 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:30:40.761 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:30:40.761 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 5
+02-05-2021 09:30:40.772 [http-nio-8189-exec-7] INFO  ru.geekbrains.beans.AppLoggingAspect.afterGetCartMethodInCartControllersClass - CartDTO(items=[OrderItemDTO(productTitle=Cheese, quantity=1, PricePerProduct=40, price=40)], totalPrice=40)
+02-05-2021 09:30:42.390 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:30:42.391 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:30:42.391 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 5
+02-05-2021 09:30:42.396 [http-nio-8189-exec-9] INFO  ru.geekbrains.beans.AppLoggingAspect.afterGetCartMethodInCartControllersClass - CartDTO(items=[OrderItemDTO(productTitle=Cheese, quantity=2, PricePerProduct=40, price=80)], totalPrice=80)
+02-05-2021 09:30:42.822 [http-nio-8189-exec-10] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:30:42.822 [http-nio-8189-exec-10] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:30:42.823 [http-nio-8189-exec-10] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 5
+02-05-2021 09:30:42.827 [http-nio-8189-exec-1] INFO  ru.geekbrains.beans.AppLoggingAspect.afterGetCartMethodInCartControllersClass - CartDTO(items=[OrderItemDTO(productTitle=Cheese, quantity=3, PricePerProduct=40, price=120)], totalPrice=120)
+02-05-2021 09:31:14.256 [http-nio-8189-exec-2] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:31:14.256 [http-nio-8189-exec-2] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:31:14.256 [http-nio-8189-exec-2] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 4
+02-05-2021 09:31:14.263 [http-nio-8189-exec-5] INFO  ru.geekbrains.beans.AppLoggingAspect.afterGetCartMethodInCartControllersClass - CartDTO(items=[OrderItemDTO(productTitle=Cheese, quantity=3, PricePerProduct=40, price=120), OrderItemDTO(productTitle=Book, quantity=1, PricePerProduct=100, price=100)], totalPrice=220)
+02-05-2021 09:31:14.695 [http-nio-8189-exec-3] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:31:14.695 [http-nio-8189-exec-3] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:31:14.696 [http-nio-8189-exec-3] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 4
+02-05-2021 09:31:14.700 [http-nio-8189-exec-4] INFO  ru.geekbrains.beans.AppLoggingAspect.afterGetCartMethodInCartControllersClass - CartDTO(items=[OrderItemDTO(productTitle=Cheese, quantity=3, PricePerProduct=40, price=120), OrderItemDTO(productTitle=Book, quantity=2, PricePerProduct=100, price=200)], totalPrice=320)
+02-05-2021 09:31:15.247 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:31:15.248 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:31:15.248 [http-nio-8189-exec-6] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 3
+02-05-2021 09:31:15.254 [http-nio-8189-exec-7] INFO  ru.geekbrains.beans.AppLoggingAspect.afterGetCartMethodInCartControllersClass - CartDTO(items=[OrderItemDTO(productTitle=Cheese, quantity=3, PricePerProduct=40, price=120), OrderItemDTO(productTitle=Book, quantity=2, PricePerProduct=100, price=200), OrderItemDTO(productTitle=Computer, quantity=1, PricePerProduct=1000, price=1000)], totalPrice=1320)
+02-05-2021 09:31:15.879 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Был вызван метод: void ru.geekbrains.controllers.CartController.addToCart(Long)
+02-05-2021 09:31:15.879 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - Аргументы: 
+02-05-2021 09:31:15.879 [http-nio-8189-exec-8] INFO  ru.geekbrains.beans.AppLoggingAspect.beforeAddToCartMethodInCartControllersClassWithDetails - 3
+02-05-2021 09:31:15.884 [http-nio-8189-exec-9] INFO  ru.geekbrains.beans.AppLoggingAspect.afterGetCartMethodInCartControllersClass - CartDTO(items=[OrderItemDTO(productTitle=Cheese, quantity=3, PricePerProduct=40, price=120), OrderItemDTO(productTitle=Book, quantity=2, PricePerProduct=100, price=200), OrderItemDTO(productTitle=Computer, quantity=2, PricePerProduct=1000, price=2000)], totalPrice=2320)
